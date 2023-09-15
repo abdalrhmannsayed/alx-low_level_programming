@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _issupper - check if c is upper
+ * _isupper - check if c is upper
  *
  * @c: input from alphabet
  *
