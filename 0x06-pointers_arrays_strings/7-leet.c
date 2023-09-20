@@ -2,12 +2,12 @@
 
 /**
  * leet - change vowels to numbers.
- * @s: analized string.
+ * @c: analized string.
  *
  * Return: String with all vowels changed.
  */
 
-char *cap_string(char *c)
+char *leet(char *c)
 {
         char *cp = c;
         char key[] = ['A', 'E', 'O', 'T', 'L'];
