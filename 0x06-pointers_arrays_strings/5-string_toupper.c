@@ -2,7 +2,7 @@
 
 /**
  * string_toupper - change lowercase letters to uppercase.
- * @s: analized string.
+ * @str: analized string.
  *
  * Return: String with all letters Uppercased.
  */
