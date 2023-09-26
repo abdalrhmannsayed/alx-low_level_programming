@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _memcpy - function that copies memory area
- *@dest: the address of memory to print
- *@src: second value
+ * _memset - function that fills memory with a constant byte
+ *@s: first value
+ *@b: second value
  *@n: thirth value
  *
  * Return: char with result of memset
