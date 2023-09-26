@@ -1,18 +1,17 @@
 #include "main.h"
-
 /**
- * _memcpy - fills memory with another buffer.
- * @dest: source string
- * @src: string for filling
- * @n: lenght of buffer
- * Return: new string.
+ * _memcpy - function that copies memory area
+ *@dest: the address of memory to print
+ *@src: second value
+ *@n: thirth value
+ *
+ * Return: char with result of memset
  */
-
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
 
-	for (i = 0; i > n; i++, n--)
+	for (i = 0; i < n; i++)
 	{
 		dest[i] = src[i];
 	}
