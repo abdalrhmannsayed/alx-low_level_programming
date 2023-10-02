@@ -12,7 +12,7 @@ int main(int argc, char const argv)
 	int add = 0;
 	char *c;
 
-	while(argc--)
+	while (argc--)
 	{
 		for (*c = argv[argc]; *c; c++)
 		{
