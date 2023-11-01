@@ -1,48 +1,50 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * read_textfile - read a text file and print it to stdout
- * @filename: the name of the file to read
- * @letters: the number of letters to be read and printed
+ * read_textfile - a function that reads a text file and prints it
+ *                to POSIX standard output.
  *
- * Return: If filename is NULL, the file cannot be opened or read, or
- * write fails or returns an unexpected number of bytes, return 0.
- * Otherwise, return the actual number of letters read and printed.
- */
+ * @filename: file to read
+ * @letters: number of letters to read and print from file
+ *
+ * Return: 0 if it fails or actual number of letters it could
+ *         read and print
+*/
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buffer = NULL;
-	ssize_t b_read;
-	ssize_t b_written;
-	int fd;
+	FILE *fp;
+	char *buffer;
+	ssize_t reader, count;
+	int fileId;
 
-	if (!(filename && letters))
+	/*Open File*/
+	fp = fopen(filename, "r");
+
+	/*Processing File*/
+	if (fp == NULL)
 		return (0);
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (0);
+	fileId = fileno(fp);
 
 	buffer = malloc(sizeof(char) * letters);
-	if (!buffer)
-		return (0);
-
-	b_read = read(fd, buffer, letters);
-	close(fd);
-
-	if (b_read < 0)
+	if (buffer == NULL)
 	{
 		free(buffer);
 		return (0);
 	}
-	if (!b_read)
-		b_read = letters;
 
-	b_written = write(STDOUT_FILENO, buffer, b_read);
-	free(buffer);
-
-	if (b_written < 0)
+	reader = read(fileId, buffer, letters);
+	if (reader == -1)
 		return (0);
 
-	return (b_written);
+	count = write(STDOUT_FILENO, buffer, reader);
+	if (count == -1 || reader != count)
+		return (0);
+
+	free(buffer);
+	/*Close File*/
+	fclose(fp);
+
+	return (count);
 }
