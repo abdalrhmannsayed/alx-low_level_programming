@@ -1,5 +1,5 @@
-#ifndef FILE_IO
-#define FILE_IO
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
 
 #include <sys/types.h>
 #include <sys/stat.h>
